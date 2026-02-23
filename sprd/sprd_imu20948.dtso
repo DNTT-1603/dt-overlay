@@ -27,9 +27,9 @@
 			status = "okay";
 		};
 
-		gyro@1e {
-			compatible = "honeywell,hmc5883l";
-			reg = <0x1e>;
+		gyro@30 {
+			compatible = "memsic,mmc5983";
+			reg = <0x30>;
 			status = "disabled";
 		};
 
