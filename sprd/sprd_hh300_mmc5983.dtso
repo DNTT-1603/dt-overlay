@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 /*
- * Minimal overlay for SPRD MMC5983 gyro sensor
+ * Minimal overlay for HH300 MMC5983 gyro sensor
  */
 /dts-v1/;
 /plugin/;
 
-&i2c3 {
+&i2c0 {
 	#address-cells = <1>;
 	#size-cells = <0>;
 
@@ -16,7 +16,6 @@
 	mmc@30 {
 		compatible = "memsic,mmc5983";
 		reg = <0x30>;
-		mount-matrix = "1", "0", "0","0", "-1", "0", "0", "0", "-1";
 		status = "okay";
 	};
 };
