@@ -173,7 +173,7 @@
 			};
 		};
 
-		fdt_mmc5983 {
+		fdt_sprd_mmc5983 {
 			description = "Device Tree blob memsic gyro sensor overlay";
 			data =
 			/incbin/("./sprd/sprd_mmc5983.dtbo");
@@ -263,17 +263,12 @@
 
 		sprd_mmc5983 {
 			description = "FDT overlay blob for SPRD with mmc5983";
-			fdt = "fdt_sprd", "fdt_mmc5983";
+			fdt = "fdt_sprd", "fdt_sprd_mmc5983";
 		};
 
 		kouni {
 			description = "FDT overlay blob for Kouni";
 			fdt = "fdt_kouni";
-		};
-
-		mmc5983 {
-			description = "FDT overlay blob for mmc5983";
-			fdt = "fdt_mmc5983";
 		};
 
 	};

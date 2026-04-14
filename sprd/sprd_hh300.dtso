@@ -31,6 +31,7 @@
 	gyro@1e {
 		compatible = "honeywell,hmc5883l";
 		reg = <0x1e>;
+		mount-matrix = "1", "0", "0","0", "-1", "0", "0", "0", "-1";
 		status = "okay";
 	};
 };
