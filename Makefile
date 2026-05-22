@@ -29,13 +29,13 @@ SAMA7G5EK_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard sama7g5ek/*.dtso))
 MPFS_ICICLE_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard mpfs_icicle/*.dtso))
 
 %.pre.dtso: %.dtso
-	$(CC) -E -nostdinc -I$(KERNEL_DIR)/include -I$(KERNEL_DIR)/arch/$(ARCH)/boot/dts -x assembler-with-cpp -undef -o $@ $^
+	$(CC) -E -nostdinc -I$(KERNEL_DIR)/include -I$(KERNEL_DIR)/arch/$(ARCH)/boot/dts -I$(KERNEL_DIR)/arch/$(ARCH)/boot/dts/microchip -x assembler-with-cpp -undef -o $@ $^
 
 %.dtbo: %.pre.dtso
 	$(DTC) $(DTC_OPTIONS) -I dts -O dtb -o $@ $^
 
 %.itb: %.its %_dtbos
-	mkimage -D "-i$(KERNEL_BUILD_DIR)/arch/$(ARCH)/boot/ -i$(KERNEL_BUILD_DIR)/arch/$(ARCH)/boot/dts -p 1000 $(DTC_OPTIONS)" -f $< $@
+	mkimage -D "-i$(KERNEL_BUILD_DIR)/arch/$(ARCH)/boot/ -i$(KERNEL_BUILD_DIR)/arch/$(ARCH)/boot/dts  -i$(KERNEL_BUILD_DIR)/arch/$(ARCH)/boot/dts/microchip -p 1000 $(DTC_OPTIONS)" -f $< $@
 
 sam9x75_sprd_dtbos: $(SAM9X75_SPRD_DTBO_OBJECTS)
 
