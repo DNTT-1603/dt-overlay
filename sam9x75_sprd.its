@@ -28,7 +28,7 @@
 		};
 		base_fdt {
 			description = "SAM9X75-Sprd Flattened Device Tree blob";
-			data = /incbin/("./at91-sam9x75_curiosity.dtb");
+			data = /incbin/("./at91-sam9x75_sprd.dtb");
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
